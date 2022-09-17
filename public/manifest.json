@@ -15,7 +15,10 @@
   "permissions": ["activeTab"],
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": [
+        "http://play.google.com/books/*/*",
+        "https://play.google.com/books/*/*"
+      ],
       "js": ["./static/js/content.js"]
     }
   ],
