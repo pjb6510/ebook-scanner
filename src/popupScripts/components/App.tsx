@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BookImage } from './BookImage';
 import { GlobalStyle } from './GlobalStyle';
-import { useBookInfo } from './hooks/useBookInfo';
+import { useBookInfo } from '../hooks/useBookInfo';
 import { StateDisplay } from './StateDisplay';
 
 const MainAppContainer = styled.div`
