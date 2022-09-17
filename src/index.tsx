@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './popupScripts/App';
-import reportWebVitals from './popupScripts/reportWebVitals';
+import { App } from './popupScripts/components/App';
+import { consoleLogOnContent } from './popupScripts/utils/log';
 
 export const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+console.log = consoleLogOnContent;
+
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
