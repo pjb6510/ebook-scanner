@@ -1,10 +1,7 @@
-const channel = new BroadcastChannel('backgroundChannel');
-
-channel.onmessage = (msg) => {
-  console.log('message received from popup', msg);
-  channel.postMessage({ msg: 'Hello popup from service worker' });
-
-  channel.close();
-};
+chrome.runtime.onConnect.addListener((port) => {
+  port.onMessage.addListener((message) => {
+    console.log('background ready');
+  });
+});
 
 export {};
