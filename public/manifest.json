@@ -17,9 +17,12 @@
     {
       "matches": [
         "http://play.google.com/books/*",
-        "https://play.google.com/books/*"
+        "https://play.google.com/books/*",
+        "http://books.googleusercontent.com/books/reader/*",
+        "https://books.googleusercontent.com/books/reader/*"
       ],
-      "js": ["./static/js/content.js"]
+      "js": ["./static/js/content.js"],
+      "all_frames": true
     }
   ],
   "background": {
