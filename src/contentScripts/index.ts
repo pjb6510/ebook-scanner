@@ -1,20 +1,28 @@
 import {
   FromPopupToContentMessage,
-  FromPopupToContentMessageResponse,
   FromPopupToContentsMessageType,
 } from '../common/types/FromPopupToContentMessages';
 import { handleLogMessage } from './handleLogMessage';
+import { handleRequestInfoMessageMessage } from './handleRequestInfoMessage';
 
-// Function called when a new message is received
+/**
+ * This function is called when a new message is received
+ */
 const messagesFromReactAppListener = (
   message: FromPopupToContentMessage,
   sender: chrome.runtime.MessageSender,
-  sendResponse: (response: FromPopupToContentMessageResponse) => void
+  sendResponse: (response: any) => void
 ) => {
   switch (message.type) {
-    case FromPopupToContentsMessageType.log:
+    case FromPopupToContentsMessageType.Log: {
       handleLogMessage(message, sender, sendResponse);
       break;
+    }
+
+    case FromPopupToContentsMessageType.RequestInfo: {
+      handleRequestInfoMessageMessage(message, sender, sendResponse);
+      break;
+    }
 
     default:
       break;
