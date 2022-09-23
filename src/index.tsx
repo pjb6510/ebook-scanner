@@ -7,7 +7,10 @@ export const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-console.log = consoleLogOnContent;
+(window as any).log = consoleLogOnContent;
+declare global {
+  var log: (...args: any[]) => void;
+}
 
 root.render(
   <React.StrictMode>
