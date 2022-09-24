@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  width: 600px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
 }
 
 #root {

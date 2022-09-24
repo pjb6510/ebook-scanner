@@ -12,7 +12,8 @@ const MainAppContainer = styled.div`
   flex-flow: column;
   width: 100%;
   height: 100%;
-  ${process.env.NODE_ENV === 'development' ? 'border: 1px solid black;' : ''}
+  padding: 20px
+    ${process.env.NODE_ENV === 'development' ? 'border: 1px solid black;' : ''};
 `;
 
 function App() {
