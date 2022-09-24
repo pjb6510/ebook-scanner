@@ -5,6 +5,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { useBookInfo } from '../hooks/useBookInfo';
 import { StateDisplay } from './StateDisplay';
 import { InputPageNumbers } from './InputPageNumbers';
+import { CaptureButtons } from './CaptureButtons';
 
 const MainAppContainer = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ function App() {
           inputNumberMin={1}
           inputNumberMax={Number(totalPageNumber)}
         />
+        <CaptureButtons currentPageNumber={currentPageNumber} />
       </MainAppContainer>
     </>
   );

@@ -7,15 +7,13 @@ import {
 export function getBookInfoFromContent(
   tabId: number
 ): Promise<RequestInfoResponse> {
+  const message: RequestInfoMessage = {
+    type: FromPopupToContentsMessageType.RequestInfo,
+  };
+
   return new Promise((resolve) => {
-    chrome.tabs.sendMessage(
-      tabId,
-      {
-        type: FromPopupToContentsMessageType.RequestInfo,
-      } as RequestInfoMessage,
-      (info: RequestInfoResponse) => {
-        resolve(info);
-      }
-    );
+    chrome.tabs.sendMessage(tabId, message, (info: RequestInfoResponse) => {
+      resolve(info);
+    });
   });
 }

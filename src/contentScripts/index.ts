@@ -3,6 +3,7 @@ import {
   FromPopupToContentsMessageType,
 } from '../common/types/FromPopupToContentMessages';
 import { handleLogMessage } from './handleLogMessage';
+import { handleDownloadPageMessage } from './handleRequestDownloadPageMessage';
 import { handleRequestInfoMessageMessage } from './handleRequestInfoMessage';
 
 /**
@@ -11,7 +12,7 @@ import { handleRequestInfoMessageMessage } from './handleRequestInfoMessage';
 const messagesFromReactAppListener = (
   message: FromPopupToContentMessage,
   sender: chrome.runtime.MessageSender,
-  sendResponse: (response: any) => void
+  sendResponse: (response?: any) => void
 ) => {
   switch (message.type) {
     case FromPopupToContentsMessageType.Log: {
@@ -21,6 +22,11 @@ const messagesFromReactAppListener = (
 
     case FromPopupToContentsMessageType.RequestInfo: {
       handleRequestInfoMessageMessage(message, sender, sendResponse);
+      break;
+    }
+
+    case FromPopupToContentsMessageType.RequestDownloadPage: {
+      handleDownloadPageMessage(message, sender, sendResponse);
       break;
     }
 
