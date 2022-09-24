@@ -42,8 +42,8 @@ export function useBookInfo() {
     };
 
     const updateInfoFromContent = (info: RequestInfoResponse) => {
-      setTotalPageNumber(info?.pageNumber ?? null);
-      setCurrentPageNumber(info?.currentPage ?? null);
+      setTotalPageNumber(info?.totalPageNumber ?? null);
+      setCurrentPageNumber(info?.currentPageNumber ?? null);
     };
 
     const initInfo = async () => {

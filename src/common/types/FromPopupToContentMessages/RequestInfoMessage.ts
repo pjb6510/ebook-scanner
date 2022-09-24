@@ -5,6 +5,6 @@ export interface RequestInfoMessage {
 }
 
 export type RequestInfoResponse = {
-  currentPage: string;
-  pageNumber: string;
+  currentPageNumber: string;
+  totalPageNumber: string;
 } | null;

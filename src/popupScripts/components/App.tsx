@@ -31,7 +31,7 @@ function App() {
           inputNumberMin={1}
           inputNumberMax={Number(totalPageNumber)}
         />
-        <CaptureButtons currentPageNumber={currentPageNumber} />
+        <CaptureButtons />
       </MainAppContainer>
     </>
   );

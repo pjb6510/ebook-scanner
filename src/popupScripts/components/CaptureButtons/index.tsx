@@ -9,18 +9,16 @@ const CurrentPageCaptureButton = styled.button`
   align-items: center;
 `;
 
-interface CaptureButtonsProps {
-  currentPageNumber: string | null;
-}
+interface CaptureButtonsProps {}
 
-export function CaptureButtons({ currentPageNumber }: CaptureButtonsProps) {
+export function CaptureButtons({}: CaptureButtonsProps) {
   const handleCurrentPageCaptureClick: MouseEventHandler = async () => {
     const tabs = await getTabs();
     if (tabs[0].id == null) {
       return;
     }
 
-    await downloadCurrentPage(tabs[0].id, `page${currentPageNumber ?? ''}`);
+    await downloadCurrentPage(tabs[0].id);
   };
 
   return (
