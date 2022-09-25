@@ -4,12 +4,18 @@ import { getCurrentRendererPageElem } from './services/getCurrentRendererPageEle
 import { getImageUrlFromRenderPage } from './services/getImageUrlFromRenderPage';
 import { getPageNumberFromRange } from './services/getPageNumberFromRange';
 import { getPageRangeElem } from './services/getPageRangeElem';
+import { getTitleFromDocument } from './services/getTitleFromDocument';
+import { isBookReaderFrame } from './utils/frames';
 
-export function handleDownloadPageMessage(
+export async function handleDownloadPageMessage(
   _message: RequestDownloadPageMessage,
   _sender: chrome.runtime.MessageSender,
-  sendResponse: () => void
+  _sendResponse: () => void
 ) {
+  if (!isBookReaderFrame(window.location.href)) {
+    return;
+  }
+
   const $currentRenderPage = getCurrentRendererPageElem(document);
   if ($currentRenderPage == null) {
     return;
@@ -20,22 +26,15 @@ export function handleDownloadPageMessage(
     return;
   }
 
-  const pageNumber = (() => {
-    const $pageElem = getPageRangeElem(document);
-    if ($pageElem == null) {
-      return null;
-    }
+  const { currentPageNumber } = getPageNumberFromRange(
+    getPageRangeElem(document)
+  );
+  const title = getTitleFromDocument(document);
 
-    const { currentPageNumber } = getPageNumberFromRange($pageElem);
-    return currentPageNumber ?? null;
-  })();
-
-  const downloadPageImage = createDownloadBlobTrigger(
-    document,
+  const downloadPage = createDownloadBlobTrigger(
     imageUrl,
-    `page-${pageNumber ?? 'unknown'}.png`
+    `${title}/page-${currentPageNumber ?? 'unknown'}.png`
   );
 
-  downloadPageImage();
-  sendResponse();
+  await downloadPage();
 }

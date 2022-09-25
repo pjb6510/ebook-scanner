@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { downloadCurrentPage } from '../../messages/downloadCurrentPage';
 import { getTabs } from '../../utils/getTabs';
 
-const CurrentPageCaptureButton = styled.button`
+const CaptureButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,10 @@ export function CaptureButtons({}: CaptureButtonsProps) {
   };
 
   return (
-    <CurrentPageCaptureButton onClick={handleCurrentPageCaptureClick}>
-      Capture Current Page
-    </CurrentPageCaptureButton>
+    <>
+      <CaptureButton onClick={handleCurrentPageCaptureClick}>
+        Capture Current Page
+      </CaptureButton>
+    </>
   );
 }

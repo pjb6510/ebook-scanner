@@ -9,7 +9,7 @@ import { handleRequestInfoMessageMessage } from './handleRequestInfoMessage';
 /**
  * This function is called when a new message is received
  */
-const messagesFromReactAppListener = (
+const contentMessageHandler = (
   message: FromPopupToContentMessage,
   sender: chrome.runtime.MessageSender,
   sendResponse: (response?: any) => void
@@ -35,4 +35,4 @@ const messagesFromReactAppListener = (
   }
 };
 
-chrome.runtime.onMessage.addListener(messagesFromReactAppListener);
+chrome.runtime.onMessage.addListener(contentMessageHandler);

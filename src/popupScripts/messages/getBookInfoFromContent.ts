@@ -4,16 +4,12 @@ import {
   RequestInfoResponse,
 } from '../../common/types/FromPopupToContentMessages/RequestInfoMessage';
 
-export function getBookInfoFromContent(
+export async function getBookInfoFromContent(
   tabId: number
 ): Promise<RequestInfoResponse> {
   const message: RequestInfoMessage = {
     type: FromPopupToContentsMessageType.RequestInfo,
   };
 
-  return new Promise((resolve) => {
-    chrome.tabs.sendMessage(tabId, message, (info: RequestInfoResponse) => {
-      resolve(info);
-    });
-  });
+  return await chrome.tabs.sendMessage(tabId, message);
 }

@@ -6,6 +6,7 @@ export const enum FromPopupToContentsMessageType {
   Log = 'log',
   RequestInfo = 'RequestInfo',
   RequestDownloadPage = 'RequestDownloadPage',
+  RequestDownloadAllPages = 'RequestDownloadAllPages',
 }
 
 export type FromPopupToContentMessage =
