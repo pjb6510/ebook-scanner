@@ -1,15 +1,14 @@
 import { LogMessage } from './LogMessage';
-import { RequestDownloadPageMessage } from './RequestDownloadPage';
-import { RequestInfoMessage } from './RequestInfoMessage';
+import { RequestDownloadPageMessageFromPopup } from './RequestDownloadPage';
+import { RequestInfoMessageFromPopup } from './RequestInfoMessage';
 
-export const enum FromPopupToContentsMessageType {
-  Log = 'log',
-  RequestInfo = 'RequestInfo',
-  RequestDownloadPage = 'RequestDownloadPage',
-  RequestDownloadAllPages = 'RequestDownloadAllPages',
+export const enum FromPopupToContentMessageType {
+  Log = 'PopupToContentlog',
+  RequestInfo = 'PopupToContentRequestInfo',
+  RequestDownloadPage = 'PopupToContentRequestDownloadPage',
 }
 
 export type FromPopupToContentMessage =
   | LogMessage
-  | RequestInfoMessage
-  | RequestDownloadPageMessage;
+  | RequestInfoMessageFromPopup
+  | RequestDownloadPageMessageFromPopup;

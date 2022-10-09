@@ -1,5 +1,5 @@
-import { FromPopupToContentsMessageType } from '.';
+import { FromPopupToContentMessageType } from '.';
 
-export interface RequestDownloadPageMessage {
-  type: FromPopupToContentsMessageType.RequestDownloadPage;
+export interface RequestDownloadPageMessageFromPopup {
+  type: FromPopupToContentMessageType.RequestDownloadPage;
 }

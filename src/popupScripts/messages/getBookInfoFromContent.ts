@@ -1,14 +1,14 @@
-import { FromPopupToContentsMessageType } from '../../common/types/FromPopupToContentMessages';
+import { FromPopupToContentMessageType } from '../../common/types/FromPopupToContentMessages';
 import {
-  RequestInfoMessage,
-  RequestInfoResponse,
+  RequestInfoMessageFromPopup,
 } from '../../common/types/FromPopupToContentMessages/RequestInfoMessage';
+import { RequestInfoResponse } from "../../common/types/common/RequestInfoResponse";
 
 export async function getBookInfoFromContent(
   tabId: number
 ): Promise<RequestInfoResponse> {
-  const message: RequestInfoMessage = {
-    type: FromPopupToContentsMessageType.RequestInfo,
+  const message: RequestInfoMessageFromPopup = {
+    type: FromPopupToContentMessageType.RequestInfo,
   };
 
   return await chrome.tabs.sendMessage(tabId, message);

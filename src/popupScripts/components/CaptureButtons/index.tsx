@@ -1,7 +1,8 @@
 import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
+import { downloadAllPages } from '../../messages/downloadAllPages';
 import { downloadCurrentPage } from '../../messages/downloadCurrentPage';
-import { getTabs } from '../../utils/getTabs';
+import { getTabs } from '../../../common/utils/getTabs';
 
 const CaptureButton = styled.button`
   display: flex;
@@ -21,10 +22,17 @@ export function CaptureButtons({}: CaptureButtonsProps) {
     await downloadCurrentPage(tabs[0].id);
   };
 
+  const handleAllPagesCaptureClick: MouseEventHandler = async () => {
+    await downloadAllPages();
+  };
+
   return (
     <>
       <CaptureButton onClick={handleCurrentPageCaptureClick}>
         Capture Current Page
+      </CaptureButton>
+      <CaptureButton onClick={handleAllPagesCaptureClick}>
+        Capture All Pages
       </CaptureButton>
     </>
   );

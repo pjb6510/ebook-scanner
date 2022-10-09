@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { RequestInfoResponse } from '../../common/types/FromPopupToContentMessages/RequestInfoMessage';
+import { RequestInfoResponse } from "../../common/types/common/RequestInfoResponse";
 import { getBookInfoFromContent } from '../messages/getBookInfoFromContent';
-import { getTabs } from '../utils/getTabs';
+import { getTabs } from '../../common/utils/getTabs';
 
 const GOOGLE_BOOKS_URL = 'play.google.com/books/reader';
 

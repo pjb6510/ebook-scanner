@@ -1,4 +1,5 @@
-import { RequestDownloadPageMessage } from '../common/types/FromPopupToContentMessages/RequestDownloadPage';
+import { RequestDownloadPageMessageFromBg } from '../common/types/FromBackgroundtoContentMessages/RequestDownloadPage';
+import { RequestDownloadPageMessageFromPopup } from '../common/types/FromPopupToContentMessages/RequestDownloadPage';
 import { createDownloadBlobTrigger } from './services/createDownloadBlobTrigger';
 import { getCurrentRendererPageElem } from './services/getCurrentRendererPageElem';
 import { getImageUrlFromRenderPage } from './services/getImageUrlFromRenderPage';
@@ -7,8 +8,10 @@ import { getPageRangeElem } from './services/getPageRangeElem';
 import { getTitleFromDocument } from './services/getTitleFromDocument';
 import { isBookReaderFrame } from './utils/frames';
 
-export async function handleDownloadPageMessage(
-  _message: RequestDownloadPageMessage,
+export async function handleRequestDownloadPageMessage(
+  _message:
+    | RequestDownloadPageMessageFromPopup
+    | RequestDownloadPageMessageFromBg,
   _sender: chrome.runtime.MessageSender,
   _sendResponse: () => void
 ) {

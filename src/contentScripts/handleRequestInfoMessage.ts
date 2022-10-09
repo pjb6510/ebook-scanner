@@ -1,12 +1,13 @@
+import { RequestInfoMessageFromBg } from '../common/types/FromBackgroundtoContentMessages/RequestInfoMessage';
 import {
-  RequestInfoMessage,
-  RequestInfoResponse,
+  RequestInfoMessageFromPopup,
 } from '../common/types/FromPopupToContentMessages/RequestInfoMessage';
+import { RequestInfoResponse } from "../common/types/common/RequestInfoResponse";
 import { getPageNumberFromRange } from './services/getPageNumberFromRange';
 import { getPageRangeElem } from './services/getPageRangeElem';
 
-export function handleRequestInfoMessageMessage(
-  _message: RequestInfoMessage,
+export function handleInfoRequest(
+  _message: RequestInfoMessageFromPopup | RequestInfoMessageFromBg,
   _sender: chrome.runtime.MessageSender,
   sendResponse: (response: RequestInfoResponse) => void
 ) {

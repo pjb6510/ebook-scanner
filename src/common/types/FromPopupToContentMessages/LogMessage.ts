@@ -1,6 +1,6 @@
-import { FromPopupToContentsMessageType } from '.';
+import { FromPopupToContentMessageType } from '.';
 
 export interface LogMessage {
-  type: FromPopupToContentsMessageType.Log;
+  type: FromPopupToContentMessageType.Log;
   log: any;
 }
